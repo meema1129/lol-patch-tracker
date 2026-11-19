@@ -1,1 +1,867 @@
-[]
+[
+  {
+    "id": "Aatrox",
+    "name": "エイトロックス",
+    "en": "Aatrox"
+  },
+  {
+    "id": "Ahri",
+    "name": "アーリ",
+    "en": "Ahri"
+  },
+  {
+    "id": "Akali",
+    "name": "アカリ",
+    "en": "Akali"
+  },
+  {
+    "id": "Akshan",
+    "name": "アクシャン",
+    "en": "Akshan"
+  },
+  {
+    "id": "Alistar",
+    "name": "アリスター",
+    "en": "Alistar"
+  },
+  {
+    "id": "Ambessa",
+    "name": "アンベッサ",
+    "en": "Ambessa"
+  },
+  {
+    "id": "Amumu",
+    "name": "アムム",
+    "en": "Amumu"
+  },
+  {
+    "id": "Anivia",
+    "name": "アニビア",
+    "en": "Anivia"
+  },
+  {
+    "id": "Annie",
+    "name": "アニー",
+    "en": "Annie"
+  },
+  {
+    "id": "Aphelios",
+    "name": "アフェリオス",
+    "en": "Aphelios"
+  },
+  {
+    "id": "Ashe",
+    "name": "アッシュ",
+    "en": "Ashe"
+  },
+  {
+    "id": "AurelionSol",
+    "name": "オレリオン・ソル",
+    "en": "Aurelion Sol"
+  },
+  {
+    "id": "Aurora",
+    "name": "オーロラ",
+    "en": "Aurora"
+  },
+  {
+    "id": "Azir",
+    "name": "アジール",
+    "en": "Azir"
+  },
+  {
+    "id": "Bard",
+    "name": "バード",
+    "en": "Bard"
+  },
+  {
+    "id": "Belveth",
+    "name": "ベル＝ヴェス",
+    "en": "Bel'Veth"
+  },
+  {
+    "id": "Blitzcrank",
+    "name": "ブリッツクランク",
+    "en": "Blitzcrank"
+  },
+  {
+    "id": "Brand",
+    "name": "ブランド",
+    "en": "Brand"
+  },
+  {
+    "id": "Braum",
+    "name": "ブラウム",
+    "en": "Braum"
+  },
+  {
+    "id": "Briar",
+    "name": "ブライアー",
+    "en": "Briar"
+  },
+  {
+    "id": "Caitlyn",
+    "name": "ケイトリン",
+    "en": "Caitlyn"
+  },
+  {
+    "id": "Camille",
+    "name": "カミール",
+    "en": "Camille"
+  },
+  {
+    "id": "Cassiopeia",
+    "name": "カシオペア",
+    "en": "Cassiopeia"
+  },
+  {
+    "id": "Chogath",
+    "name": "チョ＝ガス",
+    "en": "Cho'Gath"
+  },
+  {
+    "id": "Corki",
+    "name": "コーキ",
+    "en": "Corki"
+  },
+  {
+    "id": "Darius",
+    "name": "ダリウス",
+    "en": "Darius"
+  },
+  {
+    "id": "Diana",
+    "name": "ダイアナ",
+    "en": "Diana"
+  },
+  {
+    "id": "Draven",
+    "name": "ドレイヴン",
+    "en": "Draven"
+  },
+  {
+    "id": "DrMundo",
+    "name": "ドクター・ムンド",
+    "en": "Dr. Mundo"
+  },
+  {
+    "id": "Ekko",
+    "name": "エコー",
+    "en": "Ekko"
+  },
+  {
+    "id": "Elise",
+    "name": "エリス",
+    "en": "Elise"
+  },
+  {
+    "id": "Evelynn",
+    "name": "イブリン",
+    "en": "Evelynn"
+  },
+  {
+    "id": "Ezreal",
+    "name": "エズリアル",
+    "en": "Ezreal"
+  },
+  {
+    "id": "Fiddlesticks",
+    "name": "フィドルスティックス",
+    "en": "Fiddlesticks"
+  },
+  {
+    "id": "Fiora",
+    "name": "フィオラ",
+    "en": "Fiora"
+  },
+  {
+    "id": "Fizz",
+    "name": "フィズ",
+    "en": "Fizz"
+  },
+  {
+    "id": "Galio",
+    "name": "ガリオ",
+    "en": "Galio"
+  },
+  {
+    "id": "Gangplank",
+    "name": "ガングプランク",
+    "en": "Gangplank"
+  },
+  {
+    "id": "Garen",
+    "name": "ガレン",
+    "en": "Garen"
+  },
+  {
+    "id": "Gnar",
+    "name": "ナー",
+    "en": "Gnar"
+  },
+  {
+    "id": "Gragas",
+    "name": "グラガス",
+    "en": "Gragas"
+  },
+  {
+    "id": "Graves",
+    "name": "グレイブス",
+    "en": "Graves"
+  },
+  {
+    "id": "Gwen",
+    "name": "グウェン",
+    "en": "Gwen"
+  },
+  {
+    "id": "Hecarim",
+    "name": "ヘカリム",
+    "en": "Hecarim"
+  },
+  {
+    "id": "Heimerdinger",
+    "name": "ハイマーディンガー",
+    "en": "Heimerdinger"
+  },
+  {
+    "id": "Hwei",
+    "name": "フェイ",
+    "en": "Hwei"
+  },
+  {
+    "id": "Illaoi",
+    "name": "イラオイ",
+    "en": "Illaoi"
+  },
+  {
+    "id": "Irelia",
+    "name": "イレリア",
+    "en": "Irelia"
+  },
+  {
+    "id": "Ivern",
+    "name": "アイバーン",
+    "en": "Ivern"
+  },
+  {
+    "id": "Janna",
+    "name": "ジャンナ",
+    "en": "Janna"
+  },
+  {
+    "id": "JarvanIV",
+    "name": "ジャーヴァンⅣ",
+    "en": "Jarvan IV"
+  },
+  {
+    "id": "Jax",
+    "name": "ジャックス",
+    "en": "Jax"
+  },
+  {
+    "id": "Jayce",
+    "name": "ジェイス",
+    "en": "Jayce"
+  },
+  {
+    "id": "Jhin",
+    "name": "ジン",
+    "en": "Jhin"
+  },
+  {
+    "id": "Jinx",
+    "name": "ジンクス",
+    "en": "Jinx"
+  },
+  {
+    "id": "Kaisa",
+    "name": "カイ＝サ",
+    "en": "Kai'Sa"
+  },
+  {
+    "id": "Kalista",
+    "name": "カリスタ",
+    "en": "Kalista"
+  },
+  {
+    "id": "Karma",
+    "name": "カルマ",
+    "en": "Karma"
+  },
+  {
+    "id": "Karthus",
+    "name": "カーサス",
+    "en": "Karthus"
+  },
+  {
+    "id": "Kassadin",
+    "name": "カサディン",
+    "en": "Kassadin"
+  },
+  {
+    "id": "Katarina",
+    "name": "カタリナ",
+    "en": "Katarina"
+  },
+  {
+    "id": "Kayle",
+    "name": "ケイル",
+    "en": "Kayle"
+  },
+  {
+    "id": "Kayn",
+    "name": "ケイン",
+    "en": "Kayn"
+  },
+  {
+    "id": "Kennen",
+    "name": "ケネン",
+    "en": "Kennen"
+  },
+  {
+    "id": "Khazix",
+    "name": "カ＝ジックス",
+    "en": "Kha'Zix"
+  },
+  {
+    "id": "Kindred",
+    "name": "キンドレッド",
+    "en": "Kindred"
+  },
+  {
+    "id": "Kled",
+    "name": "クレッド",
+    "en": "Kled"
+  },
+  {
+    "id": "KogMaw",
+    "name": "コグ＝マウ",
+    "en": "Kog'Maw"
+  },
+  {
+    "id": "KSante",
+    "name": "カ・サンテ",
+    "en": "K'Sante"
+  },
+  {
+    "id": "Leblanc",
+    "name": "ルブラン",
+    "en": "LeBlanc"
+  },
+  {
+    "id": "LeeSin",
+    "name": "リー・シン",
+    "en": "Lee Sin"
+  },
+  {
+    "id": "Leona",
+    "name": "レオナ",
+    "en": "Leona"
+  },
+  {
+    "id": "Lillia",
+    "name": "リリア",
+    "en": "Lillia"
+  },
+  {
+    "id": "Lissandra",
+    "name": "リサンドラ",
+    "en": "Lissandra"
+  },
+  {
+    "id": "Locke",
+    "name": "ロック",
+    "en": "Locke"
+  },
+  {
+    "id": "Lucian",
+    "name": "ルシアン",
+    "en": "Lucian"
+  },
+  {
+    "id": "Lulu",
+    "name": "ルル",
+    "en": "Lulu"
+  },
+  {
+    "id": "Lux",
+    "name": "ラックス",
+    "en": "Lux"
+  },
+  {
+    "id": "Malphite",
+    "name": "マルファイト",
+    "en": "Malphite"
+  },
+  {
+    "id": "Malzahar",
+    "name": "マルザハール",
+    "en": "Malzahar"
+  },
+  {
+    "id": "Maokai",
+    "name": "マオカイ",
+    "en": "Maokai"
+  },
+  {
+    "id": "MasterYi",
+    "name": "マスター・イー",
+    "en": "Master Yi"
+  },
+  {
+    "id": "Mel",
+    "name": "メル",
+    "en": "Mel"
+  },
+  {
+    "id": "Milio",
+    "name": "ミリオ",
+    "en": "Milio"
+  },
+  {
+    "id": "MissFortune",
+    "name": "ミス・フォーチュン",
+    "en": "Miss Fortune"
+  },
+  {
+    "id": "MonkeyKing",
+    "name": "ウーコン",
+    "en": "Wukong"
+  },
+  {
+    "id": "Mordekaiser",
+    "name": "モルデカイザー",
+    "en": "Mordekaiser"
+  },
+  {
+    "id": "Morgana",
+    "name": "モルガナ",
+    "en": "Morgana"
+  },
+  {
+    "id": "Naafiri",
+    "name": "ナフィーリ",
+    "en": "Naafiri"
+  },
+  {
+    "id": "Nami",
+    "name": "ナミ",
+    "en": "Nami"
+  },
+  {
+    "id": "Nasus",
+    "name": "ナサス",
+    "en": "Nasus"
+  },
+  {
+    "id": "Nautilus",
+    "name": "ノーチラス",
+    "en": "Nautilus"
+  },
+  {
+    "id": "Neeko",
+    "name": "ニーコ",
+    "en": "Neeko"
+  },
+  {
+    "id": "Nidalee",
+    "name": "ニダリー",
+    "en": "Nidalee"
+  },
+  {
+    "id": "Nilah",
+    "name": "ニーラ",
+    "en": "Nilah"
+  },
+  {
+    "id": "Nocturne",
+    "name": "ノクターン",
+    "en": "Nocturne"
+  },
+  {
+    "id": "Nunu",
+    "name": "ヌヌ＆ウィルンプ",
+    "en": "Nunu & Willump"
+  },
+  {
+    "id": "Olaf",
+    "name": "オラフ",
+    "en": "Olaf"
+  },
+  {
+    "id": "Orianna",
+    "name": "オリアナ",
+    "en": "Orianna"
+  },
+  {
+    "id": "Ornn",
+    "name": "オーン",
+    "en": "Ornn"
+  },
+  {
+    "id": "Pantheon",
+    "name": "パンテオン",
+    "en": "Pantheon"
+  },
+  {
+    "id": "Poppy",
+    "name": "ポッピー",
+    "en": "Poppy"
+  },
+  {
+    "id": "Pyke",
+    "name": "パイク",
+    "en": "Pyke"
+  },
+  {
+    "id": "Qiyana",
+    "name": "キヤナ",
+    "en": "Qiyana"
+  },
+  {
+    "id": "Quinn",
+    "name": "クイン",
+    "en": "Quinn"
+  },
+  {
+    "id": "Rakan",
+    "name": "ラカン",
+    "en": "Rakan"
+  },
+  {
+    "id": "Rammus",
+    "name": "ラムス",
+    "en": "Rammus"
+  },
+  {
+    "id": "RekSai",
+    "name": "レク＝サイ",
+    "en": "Rek'Sai"
+  },
+  {
+    "id": "Rell",
+    "name": "レル",
+    "en": "Rell"
+  },
+  {
+    "id": "Renata",
+    "name": "レナータ・グラスク",
+    "en": "Renata Glasc"
+  },
+  {
+    "id": "Renekton",
+    "name": "レネクトン",
+    "en": "Renekton"
+  },
+  {
+    "id": "Rengar",
+    "name": "レンガー",
+    "en": "Rengar"
+  },
+  {
+    "id": "Riven",
+    "name": "リヴェン",
+    "en": "Riven"
+  },
+  {
+    "id": "Rumble",
+    "name": "ランブル",
+    "en": "Rumble"
+  },
+  {
+    "id": "Ryze",
+    "name": "ライズ",
+    "en": "Ryze"
+  },
+  {
+    "id": "Samira",
+    "name": "サミーラ",
+    "en": "Samira"
+  },
+  {
+    "id": "Sejuani",
+    "name": "セジュアニ",
+    "en": "Sejuani"
+  },
+  {
+    "id": "Senna",
+    "name": "セナ",
+    "en": "Senna"
+  },
+  {
+    "id": "Seraphine",
+    "name": "セラフィーン",
+    "en": "Seraphine"
+  },
+  {
+    "id": "Sett",
+    "name": "セト",
+    "en": "Sett"
+  },
+  {
+    "id": "Shaco",
+    "name": "シャコ",
+    "en": "Shaco"
+  },
+  {
+    "id": "Shen",
+    "name": "シェン",
+    "en": "Shen"
+  },
+  {
+    "id": "Shyvana",
+    "name": "シヴァーナ",
+    "en": "Shyvana"
+  },
+  {
+    "id": "Singed",
+    "name": "シンジド",
+    "en": "Singed"
+  },
+  {
+    "id": "Sion",
+    "name": "サイオン",
+    "en": "Sion"
+  },
+  {
+    "id": "Sivir",
+    "name": "シヴィア",
+    "en": "Sivir"
+  },
+  {
+    "id": "Skarner",
+    "name": "スカーナー",
+    "en": "Skarner"
+  },
+  {
+    "id": "Smolder",
+    "name": "スモルダー",
+    "en": "Smolder"
+  },
+  {
+    "id": "Sona",
+    "name": "ソナ",
+    "en": "Sona"
+  },
+  {
+    "id": "Soraka",
+    "name": "ソラカ",
+    "en": "Soraka"
+  },
+  {
+    "id": "Swain",
+    "name": "スウェイン",
+    "en": "Swain"
+  },
+  {
+    "id": "Sylas",
+    "name": "サイラス",
+    "en": "Sylas"
+  },
+  {
+    "id": "Syndra",
+    "name": "シンドラ",
+    "en": "Syndra"
+  },
+  {
+    "id": "TahmKench",
+    "name": "タム・ケンチ",
+    "en": "Tahm Kench"
+  },
+  {
+    "id": "Taliyah",
+    "name": "タリヤ",
+    "en": "Taliyah"
+  },
+  {
+    "id": "Talon",
+    "name": "タロン",
+    "en": "Talon"
+  },
+  {
+    "id": "Taric",
+    "name": "タリック",
+    "en": "Taric"
+  },
+  {
+    "id": "Teemo",
+    "name": "ティーモ",
+    "en": "Teemo"
+  },
+  {
+    "id": "Thresh",
+    "name": "スレッシュ",
+    "en": "Thresh"
+  },
+  {
+    "id": "Tristana",
+    "name": "トリスターナ",
+    "en": "Tristana"
+  },
+  {
+    "id": "Trundle",
+    "name": "トランドル",
+    "en": "Trundle"
+  },
+  {
+    "id": "Tryndamere",
+    "name": "トリンダメア",
+    "en": "Tryndamere"
+  },
+  {
+    "id": "TwistedFate",
+    "name": "ツイステッド・フェイト",
+    "en": "Twisted Fate"
+  },
+  {
+    "id": "Twitch",
+    "name": "トゥイッチ",
+    "en": "Twitch"
+  },
+  {
+    "id": "Udyr",
+    "name": "ウディア",
+    "en": "Udyr"
+  },
+  {
+    "id": "Urgot",
+    "name": "アーゴット",
+    "en": "Urgot"
+  },
+  {
+    "id": "Varus",
+    "name": "ヴァルス",
+    "en": "Varus"
+  },
+  {
+    "id": "Vayne",
+    "name": "ヴェイン",
+    "en": "Vayne"
+  },
+  {
+    "id": "Veigar",
+    "name": "ベイガー",
+    "en": "Veigar"
+  },
+  {
+    "id": "Velkoz",
+    "name": "ヴェル＝コズ",
+    "en": "Vel'Koz"
+  },
+  {
+    "id": "Vex",
+    "name": "ヴェックス",
+    "en": "Vex"
+  },
+  {
+    "id": "Vi",
+    "name": "ヴァイ",
+    "en": "Vi"
+  },
+  {
+    "id": "Viego",
+    "name": "ヴィエゴ",
+    "en": "Viego"
+  },
+  {
+    "id": "Viktor",
+    "name": "ビクター",
+    "en": "Viktor"
+  },
+  {
+    "id": "Vladimir",
+    "name": "ブラッドミア",
+    "en": "Vladimir"
+  },
+  {
+    "id": "Volibear",
+    "name": "ボリベア",
+    "en": "Volibear"
+  },
+  {
+    "id": "Warwick",
+    "name": "ワーウィック",
+    "en": "Warwick"
+  },
+  {
+    "id": "Xayah",
+    "name": "ザヤ",
+    "en": "Xayah"
+  },
+  {
+    "id": "Xerath",
+    "name": "ゼラス",
+    "en": "Xerath"
+  },
+  {
+    "id": "XinZhao",
+    "name": "シン・ジャオ",
+    "en": "Xin Zhao"
+  },
+  {
+    "id": "Yasuo",
+    "name": "ヤスオ",
+    "en": "Yasuo"
+  },
+  {
+    "id": "Yone",
+    "name": "ヨネ",
+    "en": "Yone"
+  },
+  {
+    "id": "Yorick",
+    "name": "ヨリック",
+    "en": "Yorick"
+  },
+  {
+    "id": "Yunara",
+    "name": "ユナラ",
+    "en": "Yunara"
+  },
+  {
+    "id": "Yuumi",
+    "name": "ユーミ",
+    "en": "Yuumi"
+  },
+  {
+    "id": "Zaahen",
+    "name": "ザーヘン",
+    "en": "Zaahen"
+  },
+  {
+    "id": "Zac",
+    "name": "ザック",
+    "en": "Zac"
+  },
+  {
+    "id": "Zed",
+    "name": "ゼド",
+    "en": "Zed"
+  },
+  {
+    "id": "Zeri",
+    "name": "ゼリ",
+    "en": "Zeri"
+  },
+  {
+    "id": "Ziggs",
+    "name": "ジグス",
+    "en": "Ziggs"
+  },
+  {
+    "id": "Zilean",
+    "name": "ジリアン",
+    "en": "Zilean"
+  },
+  {
+    "id": "Zoe",
+    "name": "ゾーイ",
+    "en": "Zoe"
+  },
+  {
+    "id": "Zyra",
+    "name": "ザイラ",
+    "en": "Zyra"
+  }
+]
