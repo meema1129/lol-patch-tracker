@@ -1,65 +1,31 @@
-"""Riot公式日本語パッチノートから2020年以降の通常チャンピオン変更を収集。"""
-import json
-import pathlib
-import re
-import time
-from datetime import date
-from urllib.parse import urlparse
-
-import requests
-from bs4 import BeautifulSoup
-
-ROOT = pathlib.Path(__file__).resolve().parent
-BASE = 'https://www.leagueoflegends.com'
-START_YEAR = 2020
-DELAY = 0.7
-SESSION = requests.Session()
-SESSION.headers.update({'User-Agent': 'LoLPatchWatcher/1.1 (personal patch tracker)'})
-
-
-def fetch(url):
-    response = SESSION.get(url, timeout=25)
-    if response.status_code == 404:
-        return None
-    response.raise_for_status()
-    return response.text
-
-
-def champions():
-    versions = SESSION.get('https://ddragon.leagueoflegends.com/api/versions.json', timeout=25)
-    versions.raise_for_status()
-    version = versions.json()[0]
-    result = []
-    jp_url = f'https://ddragon.leagueoflegends.com/cdn/{version}/data/ja_JP/champion.json'
-    en_url = f'https://ddragon.leagueoflegends.com/cdn/{version}/data/en_US/champion.json'
-    jp_resp = SESSION.get(jp_url, timeout=25)
-    en_resp = SESSION.get(en_url, timeout=25)
-    jp_resp.raise_for_status()
-    en_resp.raise_for_status()
-    jp = jp_resp.json()['data']
-    en = en_resp.json()['data']
+        url = f'https://ddragon.leagueoflegends.com/cdn/{version}/data/{locale}/champion.json'
+        response = SESSION.get(url, timeout=25)
+        response.raise_for_status()
+        if locale == 'ja_JP':
+            jp = response.json()['data']
+        else:
+            en = response.json()['data']
     for key, value in jp.items():
         result.append({'id': key, 'name': value['name'], 'en': en.get(key, {}).get('name', key)})
     return result
 
 
-def patch_candidates():
-    """年ごとの公式URL候補。存在しない候補は404として無視する。"""
-    current = date.today().year
-    for year in range(START_YEAR, current + 1):
-        yy = year % 100
-        for number in range(1, 27):
-            # 2025年の初期3パッチはS1表記。ほかは通常の番号形式。
-            slugs = [f'patch-{yy}-{number}-notes', f'patch-{yy}-{number:02d}-notes']
-            if year == 2025 and number <= 3:
-                slugs.insert(0, f'patch-25-s1-{number}-notes')
-            if year >= 2026:
-                slugs.extend([
-                    f'league-of-legends-patch-{yy}-{number}-notes',
-                    f'league-of-legends-patch-{yy}-{number:02d}-notes',
-                ])
-            for slug in dict.fromkeys(slugs):
-                yield year, number, f'{BASE}/ja-jp/news/game-updates/{slug}/'
+def patch_number(year):
+    # 2020–2024: 10.x–14.x; 2025 onward: 25.xx, 26.xx, etc.
+    return year - 2010 if year <= 2024 else year % 100
+
+
+def candidates_for(year, number):
+    yy = patch_number(year)
+    slugs = []
+    if year == 2025 and number <= 3:
+        slugs.append(f'patch-25-s1-{number}-notes')
+    slugs.extend((f'patch-{yy}-{number}-notes', f'patch-{yy}-{number:02d}-notes'))
+    if year >= 2026:
+        slugs.extend((f'league-of-legends-patch-{yy}-{number}-notes',
+                      f'league-of-legends-patch-{yy}-{number:02d}-notes'))
+    for slug in dict.fromkeys(slugs):
+        yield f'{BASE}/ja-jp/news/game-updates/{slug}/'
 
 
 def normalize(s):
@@ -82,10 +48,8 @@ def parse(html, url, version, aliases):
     sr = False
     for h in main.find_all(re.compile(r'^h[2-4]$')):
         level = int(h.name[1])
-        label = h.get_text(' ', strip=True)
-        simple = normalize(label)
+        simple = normalize(h.get_text(' ', strip=True))
         if level == 2:
-            # 独立したARAM・アリーナ等のセクションは除外。
             sr = ('チャンピオン' in simple and
                   not any(word in simple for word in ('aram', 'ランダムミッド', 'アリーナ', 'メイヘム', 'クラシック')))
             continue
@@ -115,69 +79,51 @@ def main():
     old_file = ROOT / 'patches.json'
     previous = json.loads(old_file.read_text(encoding='utf-8')) if old_file.exists() else []
     known = {p['url'].rstrip('/'): p for p in previous if isinstance(p, dict) and p.get('url')}
-    # Existing records are retained; a failed request never deletes them.
+    existing_versions = {str(p.get('version', '')).casefold() for p in known.values()}
     failures = []
     discovered = 0
-    attempted = set()
-    for year, number, url in patch_candidates():
-        key = (year, number)
-        if key in attempted:
-            continue
-        version = f'{year % 100}.{number:02d}'
-        if any(re.match(rf'^{year % 100}\.(?:0?{number}|S1\.{number})$', str(p.get('version', '')), re.I)
-               for p in known.values()):
-            attempted.add(key)
-            continue
-        for candidate_year, candidate_number, candidate in candidates_for(year, number):
-            if candidate.rstrip('/') in known:
-                attempted.add(key)
-                break
-            try:
-                html = fetch(candidate)
-                time.sleep(DELAY)
-                if html is None:
-                    continue
-                parsed = parse(html, candidate, version, aliases)
-                # No-change patches are possible, but zero extraction can also signal layout drift.
-                if not parsed['changes']:
-                    failures.append(f'{version}: no champion changes extracted ({candidate})')
-                    continue
-                known[candidate.rstrip('/')] = parsed
-                attempted.add(key)
-                discovered += 1
-                print(f'{version}: {len(parsed["changes"])} champions')
-                break
-            except (requests.RequestException, ValueError) as exc:
-                failures.append(f'{version}: {exc} ({candidate})')
-                time.sleep(DELAY)
-        attempted.add(key)
-    # Sort by publication date, avoiding assumptions about special 2025 patch numbers.
+    year_counts = {}
+    for year in range(START_YEAR, date.today().year + 1):
+        yy = patch_number(year)
+        for number in range(1, 27):
+            version = f'{yy}.{number:02d}'
+            if (version.casefold() in existing_versions or
+                f'{yy}.{number}'.casefold() in existing_versions or
+                (year == 2025 and f'25.s1.{number}' in existing_versions)):
+                continue
+            found = False
+            for candidate in candidates_for(year, number):
+                if candidate.rstrip('/') in known:
+                    found = True
+                    break
+                try:
+                    html = fetch(candidate)
+                    time.sleep(DELAY)
+                    if html is None:
+                        continue
+                    parsed = parse(html, candidate, version, aliases)
+                    if not parsed['changes']:
+                        failures.append(f'{version}: no champion changes extracted ({candidate})')
+                        continue
+                    known[candidate.rstrip('/')] = parsed
+                    existing_versions.add(version.casefold())
+                    discovered += 1
+                    year_counts[year] = year_counts.get(year, 0) + 1
+                    print(f'{version}: {len(parsed["changes"])} champions')
+                    found = True
+                    break
+                except (requests.RequestException, ValueError) as exc:
+                    failures.append(f'{version}: {exc} ({candidate})')
+                    time.sleep(DELAY)
+            # Missing patches are reported at year level rather than silently ignored.
     result = sorted(known.values(), key=lambda p: (p.get('date', ''), p.get('version', '')), reverse=True)
     if not result:
         raise RuntimeError('No patch data available; refusing to overwrite with empty output')
     (ROOT / 'champions.json').write_text(json.dumps(cs, ensure_ascii=False, indent=2), encoding='utf-8')
     old_file.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
     print(f'New patches: {discovered}; total patches: {len(result)}')
+    print('New patches by year:', year_counts)
+    print('Earliest stored date:', min((p.get('date', '') for p in result if p.get('date')), default='unknown'))
     if failures:
         print(f'Warnings ({len(failures)}):')
-        for message in failures[:30]:
-            print(' -', message)
-        print('Check missing patches manually; a green workflow alone does not prove complete coverage.')
-
-
-def candidates_for(year, number):
-    yy = year % 100
-    slugs = []
-    if year == 2025 and number <= 3:
-        slugs.append(f'patch-25-s1-{number}-notes')
-    slugs.extend((f'patch-{yy}-{number}-notes', f'patch-{yy}-{number:02d}-notes'))
-    if year >= 2026:
-        slugs.extend((f'league-of-legends-patch-{yy}-{number}-notes',
-                      f'league-of-legends-patch-{yy}-{number:02d}-notes'))
-    for slug in dict.fromkeys(slugs):
-        yield year, number, f'{BASE}/ja-jp/news/game-updates/{slug}/'
-
-
-if __name__ == '__main__':
-    main()
 
